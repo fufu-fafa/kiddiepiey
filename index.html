@@ -13,6 +13,12 @@
       align-items: center;
       height: 100vh;
     }
+    h1 {
+      color: #F1FAEE;
+    }
+    p {
+      color: #F1FAEE;
+    }
     .board {
       background-color: #457B9D;
       display: grid;
@@ -48,6 +54,8 @@
   </style>
 </head>
 <body>
+  <h1>menang dapetin Ferrari SF90 Stradale (Tipe F173)</h1>
+  <p>*s&k berlaku</p>
   <div class="board">
     <div class="cell" data-index="0"></div> <div class="cell" data-index="1"></div> <div class="cell" data-index="2"></div>
     <div class="cell" data-index="3"></div> <div class="cell" data-index="4"></div> <div class="cell" data-index="5"></div>
@@ -140,7 +148,10 @@
       const cells = document.querySelectorAll(".cell");
       board.forEach((mark, i) => cells[i].textContent = mark);
       if (checkWin(board, ai)) alert("ggez, gg no re, aint even tryin lmao, ts aint for u frfr");
-      else if (checkWin(board, player)) alert("curang jir");
+      else if (checkWin(board, player)) {
+        window.location.href = "x/sf90.jpeg";
+        alert("bro ngecheat")
+      }
       else if (board.every(cell => cell !== "")) alert("oh");
   }
 
