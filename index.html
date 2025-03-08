@@ -3,15 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
   <title>her</title>
   <style>
     body {
       background-color: #1D3557;
       display: flex;
       flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
       gap: 20px;
     }
     pre {
@@ -58,23 +66,44 @@
       font-family: monospace;
       white-space: pre-wrap; 
     }
+    footer {
+      background-color: #457B9D;
+      color: white;
+      text-align: center;
+      padding: 5px;
+      width: 100vw;
+    }
+    a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #E0E6E3;
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
-  <div class="code-container">
-    <pre><code>if is_won:
+  <div class="content">
+    <div class="code-container">
+      <pre><code>if is_won:
     redir(html)
 elif is_draw:
     print("oh")
 else:
     print(losin_msg)</code></pre>
+    </div>
+    <div class="board">
+      <div class="cell" data-index="0"></div> <div class="cell" data-index="1"></div> <div class="cell" data-index="2"></div>
+      <div class="cell" data-index="3"></div> <div class="cell" data-index="4"></div> <div class="cell" data-index="5"></div>
+      <div class="cell" data-index="6"></div> <div class="cell" data-index="7"></div> <div class="cell" data-index="8"></div>
+    </div>
+    <button id="reset" class="reset-button">Reset</button>
   </div>
-  <div class="board">
-    <div class="cell" data-index="0"></div> <div class="cell" data-index="1"></div> <div class="cell" data-index="2"></div>
-    <div class="cell" data-index="3"></div> <div class="cell" data-index="4"></div> <div class="cell" data-index="5"></div>
-    <div class="cell" data-index="6"></div> <div class="cell" data-index="7"></div> <div class="cell" data-index="8"></div>
-  </div>
-  <button id="reset" class="reset-button">Reset</button>
+  <footer>
+    <p><a href="https://fufu-fafa.github.io/website" target="_blank" rel="noopener noreferrer" class="link">projects</a></p>
+  </footer>
 </body>
 <script>
   let board = ["", "", "", "", "", "", "", "", ""];
@@ -162,7 +191,7 @@ else:
       board.forEach((mark, i) => cells[i].textContent = mark);
       if (checkWin(board, ai)) alert("ggez, gg no re, ts aint for u frfr");
       else if (checkWin(board, player)) {
-        window.location.href = "x/ans.html";
+        window.location.href = "ans.html";
         alert("bro ngecheat")
       }
       else if (board.every(cell => cell !== "")) alert("oh");
