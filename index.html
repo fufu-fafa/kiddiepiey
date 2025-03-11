@@ -98,7 +98,7 @@
 elif is_draw:
     print("oh")
 else:
-    print(losin_msg)</code></pre>
+    print("lmao")</code></pre>
     </div>
     <div class="board">
       <div class="cell" data-index="0"></div> <div class="cell" data-index="1"></div> <div class="cell" data-index="2"></div>
@@ -195,10 +195,10 @@ else:
   function updateBoard() {
       const cells = document.querySelectorAll(".cell");
       board.forEach((mark, i) => cells[i].textContent = mark);
-      if (checkWin(board, ai)) alert("ggez, gg no re, ts aint for u frfr");
+      if (checkWin(board, ai)) alert("lmao");
       else if (checkWin(board, player)) {
         window.location.href = "ans.html";
-        alert("bro ngecheat")
+        alert("cheater")
       }
       else if (board.every(cell => cell !== "")) alert("oh");
   }
